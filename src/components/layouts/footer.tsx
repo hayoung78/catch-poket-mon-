@@ -6,7 +6,7 @@
 
 const Footer = () => {
     return (
-        <footer className="bg-SYSTEM-white text-SYSTEM-black py-4 text-center fixed bottom-0 w-full">
+        <footer className="bg-SYSTEM-white text-SYSTEM-black py-4 text-center w-full border-t border-COMMON-light-gray">
             <div className="container mx-auto">
                 <p>&copy; Catch PoketMon 'in your poke'</p>
                 <p>

@@ -24,7 +24,7 @@ const Header = () => {
         navigate("/pokedex");
     };
     return (
-        <header className="flex items-center justify-between p-4  bg-SYSTEM-whte h-[140px] w-[100%]">
+        <header className="flex items-center justify-between p-4  bg-SYSTEM-whte h-[80px] w-[100%]">
             <div
                 className="flex items-center space-x-4 flex-grow cursor-pointer"
                 onClick={onClickLogo}

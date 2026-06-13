@@ -43,12 +43,12 @@ const EncounterPokeScreen = ({
     return (
         <div className="absolutes w-full">
             <div className="w-full flex items-center justify-center">
-                <div className="max-w-[922px] w-full h-[600px] lg:h-[700px] flex justify-center items-center flex-col">
+                <div className="max-w-[922px] w-full h-[440px] lg:h-[520px] flex justify-center items-center flex-col">
                     <div className="w-full flex justify-end items-center">
                         <p className=" text-lg">포획률 : {capturePercent}%</p>
                     </div>
 
-                    <div className="h-[460px] lg:h-[560px]  flex items-center ">
+                    <div className="h-[320px] lg:h-[400px]  flex items-center ">
                         <img
                             src={
                                 data.pokemon.sprites.other.showdown
