@@ -59,7 +59,12 @@ app.use(
       } catch {
         return cb(new Error("Not allowed by CORS"));
       }
-      if (allowedOrigins.includes(origin) || host.endsWith(".vercel.app")) {
+      const isLocalhost = host === "localhost" || host === "127.0.0.1";
+      if (
+        allowedOrigins.includes(origin) ||
+        host.endsWith(".vercel.app") ||
+        isLocalhost
+      ) {
         return cb(null, true);
       }
       return cb(new Error("Not allowed by CORS"));
