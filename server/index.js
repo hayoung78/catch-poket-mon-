@@ -47,9 +47,23 @@ const Poke = mongoose.model("Poke", pokeSchema);
 const app = express();
 app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());
+const allowedOrigins = CLIENT_ORIGIN.split(",").map((o) => o.trim());
 app.use(
   cors({
-    origin: CLIENT_ORIGIN.split(",").map((o) => o.trim()),
+    origin: (origin, cb) => {
+      // 서버-서버 요청(origin 없음), 허용 목록, 또는 모든 *.vercel.app 도메인 허용
+      if (!origin) return cb(null, true);
+      let host = "";
+      try {
+        host = new URL(origin).hostname;
+      } catch {
+        return cb(new Error("Not allowed by CORS"));
+      }
+      if (allowedOrigins.includes(origin) || host.endsWith(".vercel.app")) {
+        return cb(null, true);
+      }
+      return cb(new Error("Not allowed by CORS"));
+    },
     credentials: true,
   })
 );
