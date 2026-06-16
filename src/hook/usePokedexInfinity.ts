@@ -20,7 +20,7 @@ export const usePokeDataInfinite = ({
     getPokemon,
 }: PokeApiProps) => {
     return useInfiniteQuery<  PokeDetails[] | null, Error, PokeDetails[] | null, QueryKey>(
-        "pokeData", 
+        "pokedexList",
         async ({ pageParam = 0 }:QueryFunctionContext<QueryKey,number>) => { 
             const response = await getAllPocketmon({
                 limit: 20,
